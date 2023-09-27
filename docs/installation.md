@@ -55,6 +55,10 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
 -   Cela lancera le serveur de développement Symfony, démarrera les processus npm et vous pourrez accéder à l'application via http://localhost:8000.
 
+5  **Visualisation des API disponibles** :
+
+-   http://localhost:8000/api
+
 
 ### **Installation du FRONTEND** : 
 
