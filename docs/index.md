@@ -5,8 +5,11 @@ Bienvenue dans la documentation de SHOPPER ! Cette documentation vise à fournir
 ## Sections
 
 - [Guide d'Installation](installation.md)
-- [Guide d'Utilisation](utilisation.md)
+- [Guide d'Utilisation](usage.md)
 - [Configuration](configuration.md)
+- [Code de conduite](code_of_conduct.md)
+- [Contribution](contributing.md)
+- [Equipe SHOPPER](team.md)
 
 ## Comment Contribuer
 
