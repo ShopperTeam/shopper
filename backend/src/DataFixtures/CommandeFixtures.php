@@ -24,8 +24,16 @@ class CommandeFixtures extends Fixture implements DependentFixtureInterface
         }
 
         // One commande per our 4 users
+        $identifiantCommandeProduct = 1;
         for($i=1; $i<5; $i++) {
             $commande = new Commande();
+
+            // Pour avoir toujours les mêmes identifiants à chaque execution des fixtures :
+            $commande->setId($i);
+            $metadata = $manager->getClassMetadata(get_class($commande));
+            $metadata->setIdGenerator(new \Doctrine\ORM\Id\AssignedGenerator());
+            $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
+
             $commande->setCreatedAt($this->faker->dateTimeBetween($startDate = '-5 years', $endDate = 'now', $timezone = null));
             $commande->setUser($this->getReference('user_'.$i));
             $manager->persist($commande);
@@ -38,10 +46,19 @@ class CommandeFixtures extends Fixture implements DependentFixtureInterface
 
             for($k=0; $k<$nombreDeProcuctDansLaCommande; $k++) {
                 $commandeProduct = new CommandeProduct();
+
+                // Pour avoir toujours les mêmes identifiants à chaque execution des fixtures :
+                $commandeProduct->setId($identifiantCommandeProduct);
+                $metadata = $manager->getClassMetadata(get_class($commandeProduct));
+                $metadata->setIdGenerator(new \Doctrine\ORM\Id\AssignedGenerator());
+                $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
+
                 $commandeProduct->setQuantity(rand(1, 3));
                 $commandeProduct->setCommande($commande);
                 $commandeProduct->setProduct($this->getReference('product_'.$selectedProducts[$k]));
                 $manager->persist($commandeProduct);
+
+                $identifiantCommandeProduct++;
             }
         }
 

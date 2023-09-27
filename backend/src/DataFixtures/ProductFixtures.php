@@ -23,6 +23,12 @@ class ProductFixtures extends Fixture
         foreach ($this->getProductData() as [$photo]) {
             $product = new Product();
 
+            // Pour avoir toujours les mêmes identifiants à chaque execution des fixtures :
+            $product->setId($i);
+            $metadata = $manager->getClassMetadata(get_class($product));
+            $metadata->setIdGenerator(new \Doctrine\ORM\Id\AssignedGenerator());
+            $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
+
             $productName = $this->faker->text($maxNbChars = 20);
             $product->setName($productName);
             $product->setDescription($this->faker->paragraph($nbSentences = 5, $variableNbSentences = true));

@@ -22,19 +22,28 @@ class UserFixtures extends Fixture
 
     private function loadUsers(ObjectManager $manager): void
     {
-        $i = 1;
+        $k = 1;
+        $identifiant = 1;
         foreach ($this->getUserData() as [$password, $email, $roles]) {
             $user = new User();
+
+            // Pour avoir toujours les mêmes identifiants à chaque execution des fixtures :
+            $user->setId($identifiant);
+            $metadata = $manager->getClassMetadata(get_class($user));
+            $metadata->setIdGenerator(new \Doctrine\ORM\Id\AssignedGenerator());
+            $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
+
             $user->setPassword($this->passwordHasher->hashPassword($user, $password));
             $user->setEmail($email);
             $user->setRoles($roles);
 
             if(in_array('ROLE_USER', $roles)) {
-                $this->addReference('user_'.$i, $user);
-                $i++;
+                $this->addReference('user_'.$k, $user);
+                $k++;
             }
 
             $manager->persist($user);
+            $identifiant++;
         }
 
         $manager->flush();
