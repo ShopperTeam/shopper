@@ -7,13 +7,11 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    NotFoundComponent,
-  ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        HomeComponent,
+        NotFoundComponent
+    ]
 })
 export class HomeModule { }
