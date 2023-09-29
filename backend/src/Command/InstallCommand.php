@@ -24,7 +24,7 @@ use Symfony\Component\Dotenv\Exception\PathException;
 
 #[AsCommand(
     name: 'shopper:install',
-    description: "Installations des dependences, migration et fixtures et génération des clés SSL(auth JWT).",
+    description: "Installation of dependencies, migration and fixtures and generation of SSL keys (JWT auth).",
 )]
 class InstallCommand extends Command
 {
