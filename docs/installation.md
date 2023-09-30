@@ -9,7 +9,9 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 - **MySQL**: Assurez-vous d'avoir un serveur MySQL en cours d'exécution.
 - **PHP**: Installez PHP avec une version 8.2.0 ou supérieure.
 - **Composer**: Installez Composer.
-- **Symfony-cli**: Installer également l'outil de developpement de Symfony de préférence.
+- **Symfony-cli**: Installer également l'outil de developpement de Symfony de préférence :
+```https://symfony.com/download
+```
 
 ## Étapes d'Installation
 
