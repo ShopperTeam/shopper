@@ -37,7 +37,7 @@ Nous utilisons la méthodologie Scrum pour organiser notre travail en équipe.
 
 ## Installation et Configuration
 
-Suivez les instructions détaillées dans notre [Guide d'Installation](docs/installation.md) pour installer et configurer le projet.
+Suivez les instructions détaillées dans notre [Documentation](docs/index.md) pour installer, configurer et utiliser le projet.
 
 Vous pourrez ensuite accéder à l'application via http://localhost:4200.
 
