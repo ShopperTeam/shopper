@@ -35,7 +35,7 @@ brew install symfony-cli/tap/symfony-cli
 *   Commande:
     ```pwsh
         cd backend
-        php ./install.php
+        php install
     ```
 *   Remarque: Cette commande ne fait qu'executer les commandes en bas sous forme de script.
 
