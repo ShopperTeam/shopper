@@ -10,11 +10,11 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 - **PHP**: Installez PHP avec une version 8.2.0 ou supérieure.
 - **Composer**: Installez Composer.
 - **Symfony-cli**: Installer également l'outil de developpement de Symfony de préférence :
-**Windows
+   - Windows
 ```
 scoop install symfony-cli
 ```
-**MacOS/Linux
+   - MacOS/Linux
 ```
 brew install symfony-cli/tap/symfony-cli
 ```
