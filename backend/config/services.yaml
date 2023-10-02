@@ -26,7 +26,11 @@ services:
         class: App\EventListener\JWTCreatedListener
         arguments: [ '@request_stack' ]
         tags:
-            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }
+            - { 
+                name: kernel.event_listener, 
+                event: lexik_jwt_authentication.on_jwt_created, 
+                method: onJWTCreated 
+            }
 
 
     # Seul l'utilisateur qui a créé le token aura le droit de l'utiliser !
@@ -35,5 +39,9 @@ services:
         class: App\EventListener\JWTDecodedListener
         arguments: [ '@request_stack' ]
         tags:
-            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_decoded, method: onJWTDecoded }
+            - { 
+                name: kernel.event_listener, 
+                event: lexik_jwt_authentication.on_jwt_decoded, 
+                method: onJWTDecoded 
+            }
 
