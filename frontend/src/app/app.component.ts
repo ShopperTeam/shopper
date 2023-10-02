@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '@core/services/theme.service';
 import { initFlowbite } from 'flowbite';
 
 @Component({
@@ -7,7 +8,10 @@ import { initFlowbite } from 'flowbite';
 })
 export class AppComponent {
   title = 'frontend';
-  
+
+  constructor(private themeService: ThemeService) {
+    this.themeService.initTheme();
+  }
   ngOnInit(): void {
     initFlowbite();
   }

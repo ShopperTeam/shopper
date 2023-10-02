@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
 import { HomeModule } from './home/home.module';
+import { ThemeService } from '@core/services/theme.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { HomeModule } from './home/home.module';
     AdminModule,
     HomeModule
   ],
-  providers: [],
+  providers: [ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
