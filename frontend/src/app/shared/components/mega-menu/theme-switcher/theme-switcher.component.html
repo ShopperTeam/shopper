@@ -1,0 +1,38 @@
+<div class="flex">
+  <button
+    id="states-button"
+    data-dropdown-toggle="dropdown-states"
+    class="flex-shrink-0 z-10 inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-2xl hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+    type="button"
+    ngSwitch="{{ selectedTheme }}"
+  >
+    <svg-sun *ngSwitchCase="'light'" className="h-6 w-6" />
+    <svg-moon *ngSwitchCase="'dark'" className="h-6 w-6" />
+    <svg-system *ngSwitchCase="'system'" className="h-6 w-6" />
+  </button>
+  <div
+    id="dropdown-states"
+    class="z-10 p-1 hidden bg-white divide-y divide-gray-100 rounded-2xl shadow dark:bg-gray-700"
+  >
+    <ul
+      class="text-sm text-gray-700 dark:text-gray-200"
+      aria-labelledby="states-button"
+    >
+      <li *ngFor="let theme of themes; let i = index">
+        <ng-container *ngIf="theme.theme !== selectedTheme">
+          <button
+            (click)="setTheme(theme.theme)"
+            type="button"
+            class="inline-flex w-full p-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white rounded-2xl"
+          >
+            <div class="inline-flex items-center" ngSwitch="{{ theme.theme }}">
+              <svg-sun className="h-6 w-6" *ngSwitchCase="'light'" />
+              <svg-moon className="h-6 w-6" *ngSwitchCase="'dark'" />
+              <svg-system className="h-6 w-6" *ngSwitchCase="'system'" />
+            </div>
+          </button>
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+</div>
