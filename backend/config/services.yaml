@@ -45,3 +45,15 @@ services:
                 method: onJWTDecoded 
             }
 
+
+    # En cas de succes de l'authentification, on garde une trace de cette connexion dans la BDD
+    api.event.jwt_success_listener:
+        class: App\EventListener\JWTSuccessListener
+        arguments: [ '@request_stack', '@doctrine.orm.entity_manager' ]
+        tags:
+            - { 
+                name: kernel.event_listener, 
+                event: lexik_jwt_authentication.on_authentication_success, 
+                method: onJWTSuccess 
+            }
+
