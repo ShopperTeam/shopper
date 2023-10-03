@@ -6,6 +6,8 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use App\Repository\UserRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -58,10 +60,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(['read:User:collection', 'read:User:item'])]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserConnection::class, orphanRemoval: true)]
+    private Collection $userConnections;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
         $this->updatedAt = new DateTimeImmutable();
+        $this->userConnections = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -161,6 +167,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserConnection>
+     */
+    public function getUserConnections(): Collection
+    {
+        return $this->userConnections;
+    }
+
+    public function addUserConnection(UserConnection $userConnection): static
+    {
+        if (!$this->userConnections->contains($userConnection)) {
+            $this->userConnections->add($userConnection);
+            $userConnection->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserConnection(UserConnection $userConnection): static
+    {
+        if ($this->userConnections->removeElement($userConnection)) {
+            // set the owning side to null (unless already changed)
+            if ($userConnection->getUser() === $this) {
+                $userConnection->setUser(null);
+            }
+        }
 
         return $this;
     }
