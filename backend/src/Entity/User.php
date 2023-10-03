@@ -35,7 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['read:User:collection', 'read:User:item'])]
+    #[Groups(['read:User:collection', 'read:User:item', 'read:UserConnection:collection'])]
     private ?int $id = null;
     
     #[ORM\Column(length: 180, unique: true)]
@@ -59,8 +59,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     #[Groups(['read:User:collection', 'read:User:item'])]
     private ?\DateTimeImmutable $updatedAt = null;
-
+    
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserConnection::class, orphanRemoval: true)]
+    #[Groups(['read:User:item'])]
     private Collection $userConnections;
 
     public function __construct()
