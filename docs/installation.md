@@ -102,6 +102,13 @@ brew install symfony-cli/tap/symfony-cli
         npm install
     ```
 
+### Lancement du Serveur du front 
+
+```bash
+    ng serve
+```
+
+
 <!-- //TODO Angular ne semble pas utiliser les fichier .env pour gérer ces variables d'environnement. -->
 
 <!-- 2  **Configuration de l'Environnement** :
