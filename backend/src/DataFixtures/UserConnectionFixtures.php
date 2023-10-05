@@ -39,7 +39,6 @@ class UserConnectionFixtures extends Fixture implements DependentFixtureInterfac
                 
                 $userConnection->setConnectedAt($dateTimeImmutable);
                 $userConnection->setUser($this->getReference('user_'.$i));
-                $userConnection->setIp($this->faker->ipv4());
                 $manager->persist($userConnection);
 
                 $identifiant++;

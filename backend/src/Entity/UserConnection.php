@@ -35,10 +35,6 @@ class UserConnection
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(['read:User:collection', 'read:UserConnection:collection'])]
     private ?User $user = null;
-    
-    #[ORM\Column(length: 50, nullable: true)]
-    #[Groups(['read:User:collection', 'read:UserConnection:collection', 'read:User:item'])]
-    private ?string $ip = null;
 
     public function getId(): ?int
     {
@@ -76,15 +72,4 @@ class UserConnection
         return $this;
     }
 
-    public function getIp(): ?string
-    {
-        return $this->ip;
-    }
-
-    public function setIp(?string $ip): static
-    {
-        $this->ip = $ip;
-
-        return $this;
-    }
 }
