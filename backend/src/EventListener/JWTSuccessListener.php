@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class JWTSuccessListener
 {
     public function __construct(
-        private RequestStack $requestStack, 
         private EntityManager $em
     ){}
 
@@ -22,9 +21,6 @@ class JWTSuccessListener
      */
     public function onJWTSuccess(AuthenticationSuccessEvent $event)
     {
-        $request = $this->requestStack->getCurrentRequest();
-        $ip = $request->getClientIp();
-
         /**
          * @var User $user
          */
@@ -33,7 +29,6 @@ class JWTSuccessListener
         $userConnection = new UserConnection();
         $userConnection->setConnectedAt(new \DateTimeImmutable());
         $userConnection->setUser($user);
-        $userConnection->setIp($ip);
 
         $this->em->persist($userConnection);
         $this->em->flush();
