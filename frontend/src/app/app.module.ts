@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
-import { HomeModule } from './home/home.module';
 import { ThemeService } from '@core/services/theme.service';
+import { HomeLayoutComponent } from '@home/home-layout.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { ThemeService } from '@core/services/theme.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     AdminModule,
-    HomeModule
+    HomeLayoutComponent
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
