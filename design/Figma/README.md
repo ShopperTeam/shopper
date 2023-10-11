@@ -1,1 +1,0 @@
-Fichier *.fig à glisser déposer dans le File Browser de Figma (icône maison).
