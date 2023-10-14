@@ -7,10 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
 import { ThemeService } from '@core/services/theme.service';
 import { HomeLayoutComponent } from '@home/home-layout.component';
+import { MonComponentComponent } from './mon-component/mon-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MonComponentComponent
   ],
   imports: [
     BrowserModule,
