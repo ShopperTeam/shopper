@@ -7,6 +7,7 @@ Bienvenue dans la documentation de SHOPPER ! Cette documentation vise à fournir
 - [Guide d'Installation](installation.md)
 - [Guide d'Utilisation](usage.md)
 - [Configuration](configuration.md)
+- [Design](design.md)
 - [Code de conduite](code_of_conduct.md)
 - [Contribution](contributing.md)
 - [Equipe SHOPPER](team.md)
