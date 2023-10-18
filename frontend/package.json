@@ -12,7 +12,8 @@
     "compodoc": "npx compodoc -p tsconfig.doc.json -w -s",
     "lint": "ng lint",
     "format": "npx prettier . -c --ignore-path .gitignore",
-    "format:fix": "npx prettier . -w --ignore-path .gitignore"
+    "format:fix": "npx prettier . -w --ignore-path .gitignore",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -55,8 +56,9 @@
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "autoprefixer": "^10.4.16",
-    "jasmine-core": "~4.6.0",
     "eslint": "^8.51.0",
+    "husky": "^8.0.3",
+    "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
