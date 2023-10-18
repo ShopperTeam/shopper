@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 
 export enum ThemeType {
   Dark = 'dark',
@@ -13,14 +13,13 @@ export enum ThemeType {
   providedIn: 'root',
 })
 export class ThemeService {
-  private readonly THEME_KEY = 'color-theme';
+  private readonly THEME_KEY = 'color-theme'
 
-  
   /**
    * Initialise le thème en fonction des préférences de l'utilisateur.
    */
   initTheme() {
-    this.setTheme(this.getTheme());
+    this.setTheme(this.getTheme())
   }
 
   /**
@@ -29,12 +28,11 @@ export class ThemeService {
    */
   setTheme(theme: ThemeType): void {
     // Résout le thème en fonction des préférences de l'utilisateur.
-    const resolvedTheme =
-      theme === ThemeType.System ? this.getSystemThemePreference() : theme;
-    document.documentElement.classList.remove(ThemeType.Dark, ThemeType.Light);
-    document.documentElement.classList.add(resolvedTheme);
+    const resolvedTheme = theme === ThemeType.System ? this.getSystemThemePreference() : theme
+    document.documentElement.classList.remove(ThemeType.Dark, ThemeType.Light)
+    document.documentElement.classList.add(resolvedTheme)
 
-    localStorage.setItem(this.THEME_KEY, theme);
+    localStorage.setItem(this.THEME_KEY, theme)
   }
 
   /**
@@ -42,13 +40,13 @@ export class ThemeService {
    * @returns Le type de thème actuel.
    */
   getTheme(): ThemeType {
-    const storedTheme = localStorage.getItem(this.THEME_KEY);
+    const storedTheme = localStorage.getItem(this.THEME_KEY)
 
     if (storedTheme) {
-      return storedTheme as ThemeType;
+      return storedTheme as ThemeType
     }
 
-    return this.getSystemThemePreference();
+    return this.getSystemThemePreference()
   }
 
   /**
@@ -57,9 +55,9 @@ export class ThemeService {
    */
   private getSystemThemePreference(): ThemeType {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return ThemeType.Dark;
+      return ThemeType.Dark
     } else {
-      return ThemeType.Light;
+      return ThemeType.Light
     }
   }
 
