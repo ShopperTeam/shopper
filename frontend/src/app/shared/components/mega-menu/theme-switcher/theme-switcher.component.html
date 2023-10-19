@@ -13,20 +13,22 @@
     id="dropdown-states"
     class="z-10 p-1 hidden bg-white divide-y divide-gray-100 rounded-2xl shadow dark:bg-gray-700">
     <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="states-button">
-      <li *ngFor="let theme of themes; let i = index">
+      <ng-container *ngFor="let theme of themes; let i = index">
         <ng-container *ngIf="theme.theme !== selectedTheme">
-          <button
-            (click)="setTheme(theme.theme)"
-            type="button"
-            class="inline-flex w-full p-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white rounded-2xl">
-            <div class="inline-flex items-center" ngSwitch="{{ theme.theme }}">
-              <svg-sun className="h-6 w-6" *ngSwitchCase="'light'" />
-              <svg-moon className="h-6 w-6" *ngSwitchCase="'dark'" />
-              <svg-system className="h-6 w-6" *ngSwitchCase="'system'" />
-            </div>
-          </button>
+          <li>
+            <button
+              (click)="setTheme(theme.theme)"
+              type="button"
+              class="inline-flex w-full p-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white rounded-2xl">
+              <div class="inline-flex items-center" ngSwitch="{{ theme.theme }}">
+                <svg-sun className="h-6 w-6" *ngSwitchCase="'light'" />
+                <svg-moon className="h-6 w-6" *ngSwitchCase="'dark'" />
+                <svg-system className="h-6 w-6" *ngSwitchCase="'system'" />
+              </div>
+            </button>
+          </li>
         </ng-container>
-      </li>
+      </ng-container>
     </ul>
   </div>
 </div>

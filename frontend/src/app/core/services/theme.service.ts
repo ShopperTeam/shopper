@@ -60,6 +60,4 @@ export class ThemeService {
       return ThemeType.Light
     }
   }
-
-  constructor() {}
 }
