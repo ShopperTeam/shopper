@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 
 @Component({
-  selector: 'svg-moon',
+  selector: 'app-svg-moon',
   standalone: true,
   template: ` <svg
     viewBox="0 0 24 24"
@@ -26,5 +26,5 @@ import { Component, Input } from '@angular/core'
   </svg>`,
 })
 export class SvgMoonComponent {
-  @Input({ required: true }) className: string = ''
+  @Input({ required: true }) className = ''
 }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 
 @Component({
-  selector: 'svg-system',
+  selector: 'app-svg-system',
   standalone: true,
   template: ` <svg
     viewBox="0 0 24 24"
@@ -25,5 +25,5 @@ import { Component, Input } from '@angular/core'
   </svg>`,
 })
 export class SvgSystemComponent {
-  @Input({ required: true }) className: string = ''
+  @Input({ required: true }) className = ''
 }

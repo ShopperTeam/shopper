@@ -1,6 +1,6 @@
 import { ThemeService, ThemeType } from '@/core/services/theme.service'
 import { CommonModule } from '@angular/common'
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { SvgMoonComponent } from '@shared/components/icons/moon.component'
 import { SvgSunComponent } from '@shared/components/icons/sun.component'
 import { SvgSystemComponent } from '@shared/components/icons/system.component'
@@ -11,7 +11,7 @@ import { SvgSystemComponent } from '@shared/components/icons/system.component'
   imports: [CommonModule, SvgSunComponent, SvgMoonComponent, SvgSystemComponent],
   templateUrl: './theme-switcher.component.html',
 })
-export class ThemeSwitcherComponent {
+export class ThemeSwitcherComponent implements OnInit {
   selectedTheme: ThemeType = ThemeType.System
 
   themes: { theme: ThemeType; label: string; component: unknown }[] = [

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 
 @Component({
-  selector: 'svg-sun',
+  selector: 'app-svg-sun',
   standalone: true,
   template: `<svg
     viewBox="0 0 24 24"
@@ -23,5 +23,5 @@ import { Component, Input } from '@angular/core'
   </svg>`,
 })
 export class SvgSunComponent {
-  @Input({ required: true }) className: string = ''
+  @Input({ required: true }) className = ''
 }
