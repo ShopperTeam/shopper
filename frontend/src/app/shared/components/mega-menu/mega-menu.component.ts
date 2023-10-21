@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common'
+import { Component } from '@angular/core'
+import { RouterLink, RouterLinkActive } from '@angular/router'
+import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component'
 
 @Component({
   selector: 'app-mega-menu',

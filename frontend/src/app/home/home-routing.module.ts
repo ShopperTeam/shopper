@@ -1,50 +1,38 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
 
 const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./home-layout.component').then((mod) => mod.HomeLayoutComponent),
+    loadComponent: () => import('./home-layout.component').then(mod => mod.HomeLayoutComponent),
     children: [
       {
         path: '',
-        loadComponent: () =>
-          import('./pages/home/home.component').then(
-            (mod) => mod.HomeComponent,
-          ),
+        loadComponent: () => import('./pages/home/home.component').then(mod => mod.HomeComponent),
       },
       {
         path: 'login',
         loadComponent: () =>
-          import('./pages/login/login.component').then(
-            (mod) => mod.LoginComponent,
-          ),
+          import('./pages/login/login.component').then(mod => mod.LoginComponent),
       },
       {
         path: 'logout',
         loadComponent: () =>
-          import('./pages/logout/logout.component').then(
-            (mod) => mod.LogoutComponent,
-          ),
+          import('./pages/logout/logout.component').then(mod => mod.LogoutComponent),
       },
       {
         path: 'register',
         loadComponent: () =>
-          import('./pages/register/register.component').then(
-            (mod) => mod.RegisterComponent,
-          ),
+          import('./pages/register/register.component').then(mod => mod.RegisterComponent),
       },
       {
         path: '**',
         loadComponent: () =>
-          import('./pages/not-found/not-found.component').then(
-            (mod) => mod.NotFoundComponent,
-          ),
+          import('./pages/not-found/not-found.component').then(mod => mod.NotFoundComponent),
       },
     ],
   },
-];
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

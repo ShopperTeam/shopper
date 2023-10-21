@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-logout',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './logout.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class LogoutComponent {
-
-}
+export class LogoutComponent {}
