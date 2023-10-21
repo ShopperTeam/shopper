@@ -13,7 +13,7 @@
     "lint": "ng lint",
     "format": "npx prettier . -c --ignore-path .gitignore",
     "format:fix": "npx prettier . -w --ignore-path .gitignore",
-    "prepare": "husky install"
+    "prepare": "cd .. && husky install frontend/.husky"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +44,7 @@
     "@angular-eslint/template-parser": "16.2.0",
     "@angular/cli": "~16.2.3",
     "@angular/compiler-cli": "^16.2.0",
+    "@angular/language-service": "^16.2.10",
     "@compodoc/compodoc": "^1.1.21",
     "@storybook/addon-docs": "^7.4.5",
     "@storybook/addon-essentials": "^7.4.5",
@@ -65,9 +66,11 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.2",
     "postcss": "^8.4.30",
     "prettier": "^3.0.3",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.4.5",
@@ -79,7 +82,7 @@
       "eslint --quiet --fix"
     ],
     "*.{json,md,html,ts}": [
-      "prettier --write"
+      "prettier --write --ignore-path .gitignore"
     ]
   }
 }

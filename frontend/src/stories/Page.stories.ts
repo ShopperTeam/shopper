@@ -1,7 +1,7 @@
+import { CommonModule } from '@angular/common'
 import type { Meta, StoryObj } from '@storybook/angular'
 import { moduleMetadata } from '@storybook/angular'
-import { within, userEvent } from '@storybook/testing-library'
-import { CommonModule } from '@angular/common'
+import { userEvent, within } from '@storybook/testing-library'
 
 import Button from './button.component'
 import Header from './header.component'
