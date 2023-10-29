@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ThemeService } from '@core/services/theme.service'
-import { HomeLayoutComponent } from '@home/home-layout.component'
+import { HomeModule } from '@home/home.module'
 import { AdminModule } from './admin/admin.module'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -15,7 +15,7 @@ import { AppComponent } from './app.component'
         AppRoutingModule,
         BrowserAnimationsModule,
         AdminModule,
-        HomeLayoutComponent,
+        HomeModule,
     ],
     providers: [ThemeService],
     bootstrap: [AppComponent],
