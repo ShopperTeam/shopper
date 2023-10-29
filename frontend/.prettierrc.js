@@ -1,6 +1,9 @@
 module.exports = {
-  plugins: ['prettier-plugin-tailwindcss', 'prettier-plugin-organize-imports'],
-  tabWidth: 2,
+  plugins: [
+    'prettier-plugin-organize-imports',
+    'prettier-plugin-tailwindcss', // MUST come last
+  ],
+  tabWidth: 4,
   useTabs: false,
   singleQuote: true,
   semi: false,
@@ -8,5 +11,5 @@ module.exports = {
   arrowParens: 'avoid',
   trailingComma: 'es5',
   bracketSameLine: true,
-  printWidth: 100,
+  printWidth: 80,
 }
