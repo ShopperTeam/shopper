@@ -54,4 +54,6 @@ Thumbs.db
 # génèrer la documentation au moment du commit avec des outils de CI/CD.
 
 documentation/**
-.storybook/**
+
+// Inside your .eslintignore file
+!.storybook

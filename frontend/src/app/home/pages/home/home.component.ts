@@ -4,9 +4,9 @@ import { LandingComponent } from '../../../shared/components/landing/landing.com
 import { MegaMenuComponent } from '../../../shared/components/mega-menu/mega-menu.component'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  standalone: true,
-  imports: [MegaMenuComponent, LandingComponent, FooterComponent],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    standalone: true,
+    imports: [MegaMenuComponent, LandingComponent, FooterComponent],
 })
 export class HomeComponent {}
