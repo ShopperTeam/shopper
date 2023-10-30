@@ -5,6 +5,11 @@ import { initFlowbite } from 'flowbite';
 @Component({
   selector: 'app-root',
   template: '<router-outlet></router-outlet>',
+  styles: [`
+    h3 {
+      color: dodgerBlue;
+    } 
+  `]
 })
 export class AppComponent {
   title = 'frontend';

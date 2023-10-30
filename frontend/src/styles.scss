@@ -1,12 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 /**
 * Add the Tailwind directives
-*/
+*/ 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* html {
+  --color-pale-purple: #e3d8f1ff;
+  --color-gunmetal: #022b3aff;
+  --color-teal: #1f7a8cff;
+  --color-yellow-green: #98ce00ff;
+  --font-size-h1: 40px;
+  --font-size-h1-rem: 2.5rem;
+  --font-size-h2: 32px;
+  --font-size-h2-rem: 2rem;
+  --font-size-h3: 24px;
+  --font-size-h3-rem: 1.5rem;
+  --font-size-h4: 16px;
+  --font-size-h4-rem: 1rem;
+  --font-size-h5: 8px;
+  --font-size-h5-rem: 0.5rem;
+  background-color: var(--color-pale-purple);
+  font-family: "AR One Sans", sans-serif;
+  color: var(--color-gunmetal);
+}
+
+body {
+  background-color: var(--color-yellow-green);
+}
+
+section {
+  color: var(--color-yellow-green);
+} */
