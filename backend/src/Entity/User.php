@@ -16,6 +16,9 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
+use App\Controller\AuthController;
+use App\Controller\RegisterController;
+use App\Dto\UserRegisterationDto;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -37,29 +40,47 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     #[Groups(['read:User:collection', 'read:User:item', 'read:UserConnection:collection'])]
     private ?int $id = null;
-    
+
     #[ORM\Column(length: 180, unique: true)]
     #[Groups(['read:User:collection', 'read:User:item'])]
     private ?string $email = null;
-    
+
     #[ORM\Column]
     #[Groups(['read:User:collection', 'read:User:item'])]
     private array $roles = [];
-    
+
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
     private ?string $password = null;
-    
+
+    /**
+     * @var string The first name of the user.
+     */
+    #[ORM\Column]
+    private ?string $firstname = null;
+
+    /**
+     * @var string The last name of the user.
+     */
+    #[ORM\Column]
+    private ?string $lastname = null;
+
+    /**
+     * @var string The phone number of the user.
+     */
+    #[ORM\Column]
+    private ?string $phone = null;
+
     #[ORM\Column]
     #[Groups(['read:User:collection', 'read:User:item'])]
     private ?\DateTimeImmutable $createdAt = null;
-    
+
     #[ORM\Column]
     #[Groups(['read:User:collection', 'read:User:item'])]
     private ?\DateTimeImmutable $updatedAt = null;
-    
+
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserConnection::class, orphanRemoval: true)]
     #[Groups(['read:User:item'])]
     private Collection $userConnections;
@@ -198,6 +219,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $userConnection->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of firstname
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set the value of firstname
+     *
+     * @return  self
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of lastname
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set the value of lastname
+     *
+     * @return  self
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of phone
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set the value of phone
+     *
+     * @return  self
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
 
         return $this;
     }
