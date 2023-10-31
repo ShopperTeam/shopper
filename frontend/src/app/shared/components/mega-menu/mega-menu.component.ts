@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 import { RouterLink, RouterLinkActive } from '@angular/router'
+import { NavUserComponent } from './nav-user/nav-user.component'
 import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component'
 
 @Component({
@@ -10,6 +11,7 @@ import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.componen
     imports: [
         CommonModule,
         ThemeSwitcherComponent,
+        NavUserComponent,
         RouterLink,
         RouterLinkActive,
     ],
