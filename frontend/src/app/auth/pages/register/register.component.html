@@ -1,9 +1,10 @@
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="group relative z-0 mb-6 w-full">
         <input
             type="email"
             name="floating_email"
             id="floating_email"
+            formControlName="email"
             class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
             placeholder=" "
             required />
@@ -18,6 +19,7 @@
             type="password"
             name="floating_password"
             id="floating_password"
+            formControlName="password"
             class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
             placeholder=" "
             required />
@@ -31,6 +33,7 @@
         <input
             type="password"
             name="repeat_password"
+            formControlName="repeatPassword"
             id="floating_repeat_password"
             class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
             placeholder=" "
@@ -47,6 +50,7 @@
                 type="text"
                 name="floating_first_name"
                 id="floating_first_name"
+                formControlName="firstname"
                 class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
                 placeholder=" "
                 required />
@@ -61,6 +65,7 @@
                 type="text"
                 name="floating_last_name"
                 id="floating_last_name"
+                formControlName="lastname"
                 class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
                 placeholder=" "
                 required />
@@ -75,9 +80,9 @@
         <div class="group relative z-0 mb-6 w-full">
             <input
                 type="tel"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 name="floating_phone"
                 id="floating_phone"
+                formControlName="phone"
                 class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
                 placeholder=" "
                 required />
@@ -90,7 +95,8 @@
     </div>
     <button
         type="submit"
-        class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto">
+        [disabled]="!registerForm.valid"
+        class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:bg-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto">
         Envoyer
     </button>
 </form>
