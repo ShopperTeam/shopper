@@ -26,7 +26,7 @@ class UserFixtures extends Fixture
     {
         $k = 1;
         $identifiant = 1;
-        foreach ($this->getUserData() as [$password, $email, $roles]) {
+        foreach ($this->getUserData() as [$password, $email, $firstname, $lastname, $phone, $roles]) {
             $user = new User();
 
             // Pour avoir toujours les mêmes identifiants à chaque execution des fixtures :
@@ -38,9 +38,12 @@ class UserFixtures extends Fixture
             $user->setPassword($this->passwordHasher->hashPassword($user, $password));
             $user->setEmail($email);
             $user->setRoles($roles);
- 
-            if(in_array('ROLE_USER', $roles)) {
-                $this->addReference('user_'.$k, $user);
+            $user->setFirstname($firstname);
+            $user->setLastname($lastname);
+            $user->setPhone($phone);
+
+            if (in_array('ROLE_USER', $roles)) {
+                $this->addReference('user_' . $k, $user);
                 $k++;
             }
 
@@ -56,14 +59,12 @@ class UserFixtures extends Fixture
     {
         return [
             // $userData = [$password, $email, $roles];
-            ['pass', 'user1@site.com', ['ROLE_USER']],
-            ['pass', 'user2@site.com', ['ROLE_USER']],
-            ['pass', 'user3@site.com', ['ROLE_USER']],
-            ['pass', 'user4@site.com', ['ROLE_USER']],
-            ['pass', 'admin1@site.com', ['ROLE_ADMIN']],
-            ['pass', 'admin2@site.com', ['ROLE_ADMIN']],
+            ['pass', 'user1@site.com', 'foo', 'bar', '061234567', ['ROLE_USER']],
+            ['pass', 'user2@site.com', 'goo', 'car', '071234567', ['ROLE_USER']],
+            ['pass', 'user3@site.com', 'hoo', 'dar', '051234986', ['ROLE_USER']],
+            ['pass', 'user4@site.com', 'joo', 'far', '021234505', ['ROLE_USER']],
+            ['pass', 'admin1@site.com', 'koo', 'gar', '011934524', ['ROLE_ADMIN']],
+            ['pass', 'admin2@site.com', 'loo', 'har', '066234543', ['ROLE_ADMIN']],
         ];
     }
-
-
 }

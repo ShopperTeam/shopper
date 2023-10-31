@@ -31,6 +31,12 @@ use Symfony\Component\Serializer\Annotation\Groups;
         new Delete(),
         new Post(),
         new Patch(),
+        new Post(
+            name: 'registration',
+            uriTemplate: 'register',
+            input: UserRegisterationDto::class,
+            controller: RegisterController::class
+        )
     ]
 )]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
