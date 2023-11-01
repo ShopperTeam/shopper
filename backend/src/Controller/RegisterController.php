@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 
-use App\Dto\UserRegisterationDto;
 use App\Dto\UserRegisterDto;
 use App\Entity\User;
 use App\Repository\UserRepository;
@@ -37,6 +36,7 @@ class RegisterController extends AbstractController
         $user->setEmail($userRegister->email);
         $user->setPhone($userRegister->phone);
         $user->setRoles(["ROLE_USER"]);
+
 
         $entityManager->persist($user);
         $entityManager->flush();

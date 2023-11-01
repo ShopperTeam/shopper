@@ -16,9 +16,8 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
-use App\Controller\AuthController;
 use App\Controller\RegisterController;
-use App\Dto\UserRegisterationDto;
+use App\Dto\UserRegisterDto;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -34,7 +33,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
         new Post(
             name: 'registration',
             uriTemplate: 'register',
-            input: UserRegisterationDto::class,
+            input: UserRegisterDto::class,
             controller: RegisterController::class
         )
     ]
