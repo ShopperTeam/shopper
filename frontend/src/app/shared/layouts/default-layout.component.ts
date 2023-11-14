@@ -8,7 +8,8 @@ import { MegaMenuComponent } from '../components/mega-menu/mega-menu.component'
     standalone: true,
     imports: [CommonModule, MegaMenuComponent, FooterComponent, RouterModule],
     template: `
-        <div class="flex min-h-screen flex-col justify-between">
+        <div
+            class="flex min-h-screen flex-col justify-between bg-white font-sans text-gun-959 dark:bg-black dark:text-gun-50">
             <app-mega-menu></app-mega-menu>
             <router-outlet></router-outlet>
             <app-footer></app-footer>
