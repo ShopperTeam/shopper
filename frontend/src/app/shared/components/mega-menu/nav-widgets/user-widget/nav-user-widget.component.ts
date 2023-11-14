@@ -1,17 +1,25 @@
 import { CommonModule } from '@angular/common'
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { RouterLink, RouterLinkActive } from '@angular/router'
 import { AuthService } from '@auth/services/auth.service'
+import { DropDownUserComponent } from './drop-down-user.component'
 
 @Component({
-    selector: 'app-nav-user',
+    selector: 'app-nav-user-widget',
     standalone: true,
-    imports: [CommonModule, RouterLink, RouterLinkActive],
-    templateUrl: './nav-user.component.html',
+    imports: [
+        CommonModule,
+        DropDownUserComponent,
+        RouterLink,
+        RouterLinkActive,
+    ],
+    templateUrl: './nav-user-widget.component.html',
     styles: [],
 })
 export class NavUserComponent implements OnInit {
-    public isLoggedIn = false
+    @Input({ required: true }) className = ''
+
+    public isLoggedIn = true
 
     constructor(private authService: AuthService) {}
 
