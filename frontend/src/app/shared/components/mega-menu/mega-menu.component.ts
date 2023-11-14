@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 import { RouterLink, RouterLinkActive } from '@angular/router'
+import { LogoComponent } from '../nav-logo/logo.component'
 import { NavListComponent } from './nav-list/nav-list.component'
-import { NavLogoComponent } from './nav-logo/nav-logo.component'
 import { NavSearchComponent } from './nav-search/nav-search.component'
 import { NavWidgetsComponent } from './nav-widgets/nav-widgets.component'
 
@@ -13,7 +13,7 @@ import { NavWidgetsComponent } from './nav-widgets/nav-widgets.component'
     imports: [
         CommonModule,
         NavSearchComponent,
-        NavLogoComponent,
+        LogoComponent,
         NavListComponent,
         NavWidgetsComponent,
         RouterLink,
