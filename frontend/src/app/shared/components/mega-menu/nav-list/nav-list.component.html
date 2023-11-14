@@ -1,0 +1,23 @@
+<div
+    id="mega-menu-icons"
+    class="items-right hidden w-full justify-between md:order-1 md:flex md:w-auto">
+    <ul class="mt-4 flex flex-col font-medium md:mt-0 md:flex-row md:space-x-8">
+        <li *ngFor="let item of menuItems">
+            <ng-container *ngIf="item.type === 'link'; else buttonTemplate">
+                <a
+                    href="{{ item.url }}"
+                    class="block border-b py-2 pl-3 pr-4 hover:text-gun-800 md:border-0 md:p-0">
+                    {{ item.label }}
+                </a>
+            </ng-container>
+            <ng-template #buttonTemplate>
+                <button
+                    id="{{ item.id }}"
+                    [attr.data-dropdown-toggle]="item.dataDropdownToggle"
+                    class="flex w-full items-center justify-between border-b py-2 pl-3 pr-4 font-medium hover:text-gun-800 md:w-auto md:border-0 md:p-0">
+                    {{ item.label }}
+                </button>
+            </ng-template>
+        </li>
+    </ul>
+</div>
