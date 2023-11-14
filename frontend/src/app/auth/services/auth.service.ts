@@ -71,25 +71,26 @@ export class AuthService {
             return of(null)
         }
 
-        // const httpOptions = {
-        //     headers: new HttpHeaders({
-        //         'Content-Type': 'application/json',
-        //         accept: 'application/json',
-        //     }),
-        // }
-        const request = this.httpClient.post<any>(
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                accept: 'application/json',
+            }),
+        }
+        const request = this.httpClient.post<Token>(
             `${this.url}/register`,
-            userRegister
+            userRegister,
+            httpOptions
         )
-        return request
-        // return request.pipe(
-        //     tap(token => {
-        //         this.handleLoginSucess(token)
-        //     }),
-        //     catchError(error => {
-        //         throw new Error("L'inscription a échoué : ", error)
-        //     })
-        // )
+
+        return request.pipe(
+            tap(token => {
+                this.handleLoginSucess(token)
+            }),
+            catchError(error => {
+                throw new Error("L'inscription a échoué : ", error)
+            })
+        )
     }
 
     login(userLogin: UserLogin): Observable<Token | null> {
