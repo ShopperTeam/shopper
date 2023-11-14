@@ -9,9 +9,11 @@ import { MegaMenuComponent } from '../components/mega-menu/mega-menu.component'
     imports: [CommonModule, MegaMenuComponent, FooterComponent, RouterModule],
     template: `
         <div
-            class="flex min-h-screen flex-col justify-between bg-white font-sans text-gun-959 dark:bg-black dark:text-gun-50">
+            class="flex min-h-screen flex-col justify-start bg-white font-sans text-gun-959 dark:bg-black dark:text-gun-50">
             <app-mega-menu></app-mega-menu>
-            <router-outlet></router-outlet>
+            <main class="dark:bg-teal-959 grow bg-purple-50 dark:bg-gun-black">
+                <router-outlet></router-outlet>
+            </main>
             <app-footer></app-footer>
         </div>
     `,
