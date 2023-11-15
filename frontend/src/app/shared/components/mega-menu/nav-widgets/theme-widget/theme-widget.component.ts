@@ -1,6 +1,7 @@
 import { ThemeService, ThemeType } from '@/core/services/theme.service'
 import { CommonModule } from '@angular/common'
 import { Component, Input, OnInit } from '@angular/core'
+import { Flowbite } from '@core/services/flowbite-init'
 import { SvgMoonComponent } from '@shared/components/icons/moon.component'
 import { SvgSunComponent } from '@shared/components/icons/sun.component'
 import { SvgSystemComponent } from '@shared/components/icons/system.component'
@@ -16,6 +17,7 @@ import { SvgSystemComponent } from '@shared/components/icons/system.component'
     ],
     templateUrl: './theme-widget.component.html',
 })
+@Flowbite()
 export class ThemeWidgetComponent implements OnInit {
     @Input({ required: true }) className = ''
 

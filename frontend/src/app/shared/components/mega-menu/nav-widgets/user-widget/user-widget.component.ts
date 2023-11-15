@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core'
 import { RouterLink, RouterLinkActive } from '@angular/router'
 import { AuthService } from '@auth/services/auth.service'
 import { UserToken } from '@core/dto/UserToken'
+import { Flowbite } from '@core/services/flowbite-init'
 import { DropDownUserComponent } from './drop-down-user.component'
 
 @Component({
@@ -17,6 +18,7 @@ import { DropDownUserComponent } from './drop-down-user.component'
     templateUrl: './user-widget.component.html',
     styles: [],
 })
+@Flowbite()
 export class UserWidgetComponent implements OnInit {
     @Input({ required: true }) className = ''
 
