@@ -9,5 +9,9 @@ import { Component, Input } from '@angular/core'
     styles: ``,
 })
 export class FavoriteWidgetComponent {
+    handleClick() {
+        // TODO : Implement favorite widget
+        alert('Method not implemented.')
+    }
     @Input({ required: true }) className = ''
 }

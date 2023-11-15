@@ -15,7 +15,6 @@ export class NavListComponent {
             type: 'button',
             label: 'New',
             id: 'mega-menu-icons-dropdown-button',
-            dataDropdownToggle: 'mega-menu-icons-dropdown',
         },
         { type: 'link', label: 'Brand', url: '#' },
     ]

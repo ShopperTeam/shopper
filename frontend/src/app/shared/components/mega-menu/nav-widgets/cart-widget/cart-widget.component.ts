@@ -9,5 +9,9 @@ import { Component, Input } from '@angular/core'
     styles: ``,
 })
 export class CartWidgetComponent {
+    handleClick() {
+        // TODO : Implement cart widget
+        alert('Method not implemented.')
+    }
     @Input({ required: true }) className = ''
 }
