@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common'
 import { Component, Input } from '@angular/core'
+import { UserToken } from './../../../../../core/dto/UserToken'
 
 @Component({
     selector: 'app-drop-down-user',
     standalone: true,
     imports: [CommonModule],
     template: `<button
+            [class]="'text-center text-sm font-medium' + className"
             id="dropdownMenuIconButton"
             data-dropdown-toggle="dropdownBot"
-            class="p-2 text-center text-sm font-medium hover:bg-yg-400/50 focus:outline-none focus:ring-4 focus:ring-yg-400"
             type="button">
             <svg
-                width="45"
-                height="45"
+                width="100%"
+                height="100%"
                 viewBox="0 0 45 45"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -46,8 +47,8 @@ import { Component, Input } from '@angular/core'
             id="dropdownBot"
             class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:divide-gray-600 dark:bg-gray-700">
             <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                <div>Bonnie Green</div>
-                <div class="truncate font-medium">name&#64;flowbite.com</div>
+                <div>{{ user.lastname + ' ' + user.firstname }}</div>
+                <div class="truncate font-medium">{{ user.email }}</div>
             </div>
             <ul
                 class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -86,9 +87,6 @@ import { Component, Input } from '@angular/core'
 })
 export class DropDownUserComponent {
     @Input({ required: true }) className = ''
-
-    logout() {
-        // TODO: Implement logout
-        alert('Method not implemented.')
-    }
+    @Input({ required: true }) user!: UserToken
+    @Input({ required: true }) logout!: () => void
 }
