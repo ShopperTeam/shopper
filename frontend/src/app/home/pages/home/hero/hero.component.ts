@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 
 @Component({
-    selector: 'app-landing',
+    selector: 'app-hero',
     standalone: true,
     imports: [CommonModule],
-    templateUrl: './landing.component.html',
+    templateUrl: './hero.component.html',
 })
-export class LandingComponent {}
+export class HeroComponent {}
