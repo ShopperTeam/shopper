@@ -22,13 +22,21 @@ export class AuthService {
     public isLoggedIn$: Observable<boolean> =
         this.isLoggedInSubject.asObservable()
 
+    private userSubject: BehaviorSubject<UserToken | null> =
+        new BehaviorSubject<UserToken | null>(null)
+    public user$: Observable<UserToken | null> = this.userSubject.asObservable()
+
     constructor(
         private httpClient: HttpClient,
         private router: Router
     ) {
         this.token = this.getToken()
-        if (!this.isLoggedInSubject.value) return
+        if (this.isLoggedInSubject.value) this.updateUser()
+    }
+
+    private updateUser(): void {
         this.user = this.getUserFromToken()
+        this.userSubject.next(this.user)
     }
 
     getUserFromToken(): UserToken | null {
@@ -126,6 +134,7 @@ export class AuthService {
         this.token = null
         this.user = null
         localStorage.removeItem('token')
+        this.userSubject.next(null)
         this.isLoggedInSubject.next(false)
         this.router.navigate(['/'])
     }
@@ -139,6 +148,7 @@ export class AuthService {
 
     handleLoginSucess(token: Token): void {
         this.setToken(token)
+        this.updateUser()
 
         if (this.redirectUrl) {
             this.router.navigate([this.redirectUrl])
