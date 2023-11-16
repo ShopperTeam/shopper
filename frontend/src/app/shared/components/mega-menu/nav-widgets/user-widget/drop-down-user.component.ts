@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { Component, Input } from '@angular/core'
+import { Flowbite } from '@core/services/flowbite-init'
+import { UserToken } from './../../../../../core/dto/UserToken'
 
 @Component({
     selector: 'app-drop-down-user',
@@ -7,12 +9,12 @@ import { Component, Input } from '@angular/core'
     imports: [CommonModule],
     template: `<button
             id="dropdownMenuIconButton"
-            data-dropdown-toggle="dropdownBot"
-            class="p-2 text-center text-sm font-medium hover:bg-yg-400/50 focus:outline-none focus:ring-4 focus:ring-yg-400"
+            [class]="'relative text-center text-sm font-medium' + className"
+            data-dropdown-toggle="dropdownUser"
             type="button">
             <svg
-                width="45"
-                height="45"
+                width="100%"
+                height="100%"
                 viewBox="0 0 45 45"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -41,13 +43,13 @@ import { Component, Input } from '@angular/core'
                     stroke-width="3.69369" />
             </svg>
         </button>
-
         <div
-            id="dropdownBot"
-            class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:divide-gray-600 dark:bg-gray-700">
-            <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                <div>Bonnie Green</div>
-                <div class="truncate font-medium">name&#64;flowbite.com</div>
+            id="dropdownUser"
+            class="z-10 hidden w-44 divide-y divide-gun-959 bg-purple-50 p-1 text-gun-959/80 shadow dark:divide-gun-100 dark:bg-gun-959 dark:text-purple-50/80">
+            <div
+                class="bg-purple-101 px-4 py-3 text-sm text-gun-959 dark:bg-gun-black dark:text-purple-50">
+                <div>{{ user.lastname + ' ' + user.firstname }}</div>
+                <div class="truncate font-medium">{{ user.email }}</div>
             </div>
             <ul
                 class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -55,40 +57,35 @@ import { Component, Input } from '@angular/core'
                 <li>
                     <a
                         href="#"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        class="block px-4 py-2 hover:bg-purple-100 hover:bg-purple-400/50 hover:text-gun-959 focus:outline-none focus:ring-4 focus:ring-purple-400 hover:dark:bg-yg-505 hover:dark:text-purple-50 focus:dark:ring-yg-400"
                         >Dashboard</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="#"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >Settings</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="#"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >Earnings</a
                     >
                 </li>
             </ul>
             <div class="py-2">
                 <button
                     (click)="logout()"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
+                    class="block px-4 py-2 text-sm hover:bg-purple-100 hover:bg-purple-400/50 hover:text-gun-959 focus:outline-none focus:ring-4 focus:ring-purple-400 hover:dark:bg-yg-505 hover:dark:text-purple-50 focus:dark:ring-yg-400">
                     Sign out
                 </button>
             </div>
         </div>`,
-    styles: ``,
 })
+@Flowbite()
 export class DropDownUserComponent {
+    isOpen = false
     @Input({ required: true }) className = ''
+    @Input({ required: true }) user!: UserToken
+    @Input({ required: true }) logout!: () => void
 
-    logout() {
-        // TODO: Implement logout
-        alert('Method not implemented.')
+    toggleDropdown() {
+        console.log('dropdown')
+        this.isOpen = !this.isOpen
+    }
+    handleOpen() {
+        this.isOpen = true
+    }
+    handleClose() {
+        this.isOpen = false
     }
 }

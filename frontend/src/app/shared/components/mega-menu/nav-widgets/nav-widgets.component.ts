@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 import { CartWidgetComponent } from './cart-widget/cart-widget.component'
 import { FavoriteWidgetComponent } from './favorite-widget/favorite-widget.component'
 import { ThemeWidgetComponent } from './theme-widget/theme-widget.component'
-import { NavUserComponent } from './user-widget/nav-user-widget.component'
+import { UserWidgetComponent } from './user-widget/user-widget.component'
 
 @Component({
     selector: 'app-nav-widgets',
@@ -13,7 +13,7 @@ import { NavUserComponent } from './user-widget/nav-user-widget.component'
         CartWidgetComponent,
         FavoriteWidgetComponent,
         ThemeWidgetComponent,
-        NavUserComponent,
+        UserWidgetComponent,
     ],
     templateUrl: './nav-widgets.component.html',
     styles: ``,

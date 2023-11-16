@@ -8,6 +8,15 @@ export interface UserToken {
     email: string
 
     /**
+     * The user's first name.
+     */
+    firstname: string
+    /**
+     * The user's last name.
+     * */
+    lastname: string
+
+    /**
      * The "exp" field represents the expiration date of the JWT as a number (timestamp).
      */
     exp: number
