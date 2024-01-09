@@ -1,0 +1,119 @@
+<footer class="bg-purple-101 dark:bg-gun-959">
+    <div class="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8">
+        <!-- FOOTER 1 -->
+        <div class="lg:flex lg:items-center lg:justify-between">
+            <div
+                class="flex justify-center text-gun-959 dark:text-yg-505 sm:justify-start">
+                <a
+                    href="{{ footerData.footerHeader.logo.route }}"
+                    class="flex items-center">
+                    <app-logo className="h-20 w-20" />
+                </a>
+            </div>
+
+            <p
+                class="mt-4 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-400 sm:text-left lg:mt-0">
+                {{ footerData.footerHeader.description }}
+            </p>
+        </div>
+
+        <!-- FOOTER 2 -->
+        <div
+            class="mt-16 grid grid-cols-1 gap-8 border-t border-gun-959 pt-16 dark:border-yg-505 md:grid-cols-4 lg:grid-cols-6">
+            <!-- SECTIONS -->
+            <div
+                *ngFor="let section of footerData.footerMain.sections"
+                class="text-center sm:text-left">
+                <p class="text-lg font-medium text-gray-900 dark:text-white">
+                    {{ section.title }}
+                </p>
+
+                <ul class="mt-8 space-y-4 text-sm">
+                    <li *ngFor="let link of section.links">
+                        <a
+                            class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                            href="{{ link.url }}">
+                            {{ link.label }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- NEWSLETTER -->
+            <div class="text-center sm:text-left md:col-span-4 lg:col-span-2">
+                <p class="text-lg font-medium text-gray-900 dark:text-white">
+                    {{ footerData.footerMain.newsLetter.title }}
+                </p>
+
+                <div class="mx-auto mt-8 max-w-md sm:ms-0">
+                    <p
+                        class="text-center leading-relaxed text-gray-500 dark:text-gray-400 ltr:sm:text-left rtl:sm:text-right">
+                        {{ footerData.footerMain.newsLetter.description }}
+                    </p>
+
+                    <form class="mt-4">
+                        <div
+                            class="flex flex-col gap-4 sm:flex-row lg:flex-col lg:items-start">
+                            <label for="email" class="sr-only">{{
+                                footerData.footerMain.newsLetter.form
+                                    .buttonLabel
+                            }}</label>
+
+                            <input
+                                class="w-full border-gun-959 bg-white px-6 py-3 shadow-sm dark:border-yg-400 dark:bg-gray-800"
+                                type="email"
+                                placeholder="{{
+                                    footerData.footerMain.newsLetter.form
+                                        .placeholder
+                                }}" />
+
+                            <button
+                                class="block bg-gun-959 px-8 py-3 font-medium text-white transition hover:bg-gun-900 dark:bg-yg-505"
+                                type="submit">
+                                {{
+                                    footerData.footerMain.newsLetter.form
+                                        .buttonLabel
+                                }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER 3 -->
+        <div
+            class="mt-16 border-t border-gun-959 pt-16 dark:border-yg-505 sm:flex sm:items-center sm:justify-between">
+            <p
+                class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
+                {{ footerData.footerBottom.copyright }}
+            </p>
+
+            <ul class="mt-4 flex justify-center gap-6 sm:mt-0 sm:justify-start">
+                <li *ngFor="let social of footerData.footerBottom.socials">
+                    <a
+                        href="{{ social.url }}}}"
+                        rel="noreferrer"
+                        target="_blank"
+                        class="text-gun-959 transition hover:text-gun-959/75 dark:text-teal-500 dark:hover:text-teal-500/75">
+                        <span class="sr-only">{{ social.name }}</span>
+                        <div [ngSwitch]="social.name">
+                            <app-facebook
+                                *ngSwitchCase="'facebook'"
+                                className="h-8 w-8" />
+                            <app-tiktok
+                                *ngSwitchCase="'twitter'"
+                                className="h-8 w-8" />
+                            <app-instagram
+                                *ngSwitchCase="'instagram'"
+                                className="h-8 w-8" />
+                            <app-youtube
+                                *ngSwitchCase="'youtube'"
+                                className="h-8 w-8" />
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>

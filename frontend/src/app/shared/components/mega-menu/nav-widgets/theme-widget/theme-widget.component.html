@@ -1,0 +1,38 @@
+<button
+    class="{{ className }}"
+    id="states-button"
+    data-dropdown-toggle="dropdown-states"
+    type="button"
+    ngSwitch="{{ selectedTheme }}">
+    <app-svg-sun *ngSwitchCase="'light'" className="h-full w-full" />
+    <app-svg-moon *ngSwitchCase="'dark'" className="h-full w-full" />
+    <app-svg-system *ngSwitchCase="'system'" className="h-full w-full" />
+</button>
+<div
+    id="dropdown-states"
+    class="z-10 hidden divide-y divide-gun-100 bg-purple-50 p-1 text-gun-959/80 shadow dark:bg-gun-959 dark:text-purple-50/80">
+    <ul class="" aria-labelledby="states-button">
+        <li *ngFor="let theme of themes; let i = index">
+            <ng-container *ngIf="theme.theme !== selectedTheme">
+                <button
+                    (click)="setTheme(theme.theme)"
+                    type="button"
+                    class="inline-flex w-full p-2 hover:bg-purple-100 hover:bg-purple-400/50 hover:text-gun-959 focus:outline-none focus:ring-4 focus:ring-purple-400 hover:dark:bg-yg-505 hover:dark:text-purple-50 focus:dark:ring-yg-400">
+                    <div
+                        class="inline-flex items-center"
+                        ngSwitch="{{ theme.theme }}">
+                        <app-svg-sun
+                            className="h-6 w-6"
+                            *ngSwitchCase="'light'" />
+                        <app-svg-moon
+                            className="h-6 w-6"
+                            *ngSwitchCase="'dark'" />
+                        <app-svg-system
+                            className="h-6 w-6"
+                            *ngSwitchCase="'system'" />
+                    </div>
+                </button>
+            </ng-container>
+        </li>
+    </ul>
+</div>

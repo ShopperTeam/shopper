@@ -20,5 +20,40 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+
+    # Au moment de la création du token, on ajoute l'ip de l'utilisateur au payload pour plus de sécurité
+    api.event.jwt_created_listener:
+        class: App\EventListener\JWTCreatedListener
+        arguments: [ '@request_stack' ]
+        tags:
+            - { 
+                name: kernel.event_listener, 
+                event: lexik_jwt_authentication.on_jwt_created, 
+                method: onJWTCreated 
+            }
+
+
+    # Seul l'utilisateur qui a créé le token aura le droit de l'utiliser !
+    # Au moment de la vérification du token, on compare l'ip de l'utilisateur avec l'ip du payload
+    api.event.jwt_decoded_listener:
+        class: App\EventListener\JWTDecodedListener
+        arguments: [ '@request_stack' ]
+        tags:
+            - { 
+                name: kernel.event_listener, 
+                event: lexik_jwt_authentication.on_jwt_decoded, 
+                method: onJWTDecoded 
+            }
+
+
+    # En cas de succes de l'authentification, on garde une trace de cette connexion dans la BDD
+    api.event.jwt_success_listener:
+        class: App\EventListener\JWTSuccessListener
+        arguments: [ '@doctrine.orm.entity_manager' ]
+        tags:
+            - { 
+                name: kernel.event_listener, 
+                event: lexik_jwt_authentication.on_authentication_success, 
+                method: onJWTSuccess 
+            }
+

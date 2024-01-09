@@ -78,14 +78,16 @@ brew install symfony-cli/tap/symfony-cli
         symfony console lexik:jwt:generate-keypair
     ```
     
-4  **Lancement du Serveur de Développement** :
+
+
+### Lancement du Serveur de Développement
 
 -   Pour lancer l'application avec les outils de développement, exécutez la commande suivante :
     ```bash
         symfony server:start
     ```
 
-5  **Visualisation des API disponibles** :
+### Visualisation des API disponibles
 <!-- //TODO depuis la mise en place de l'authentification est ce toujours possible de visualiser l'api. -->
 -   http://localhost:8000/api
 
@@ -99,6 +101,13 @@ brew install symfony-cli/tap/symfony-cli
         cd frontend
         npm install
     ```
+
+### Lancement du Serveur du front 
+
+```bash
+    ng serve
+```
+
 
 <!-- //TODO Angular ne semble pas utiliser les fichier .env pour gérer ces variables d'environnement. -->
 
