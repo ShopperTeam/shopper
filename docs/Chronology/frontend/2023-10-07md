@@ -1,0 +1,12 @@
+# 2023-10-07
+
+## Actions Réalisées
+
+### netoyages
+* Suppression des fichiers de tests.
+* Suppression des fichiers SCSS inutiles.
+* Mise en place d'une structure pour les routes.
+    - Utilisation de "layouts" pour contenir les éléments communs à toutes les pages pour un module donné (Header, Footer).
+* Désindexation des dossiers `documentation` et `storybook` qui sont générables facilement.
+    - L'idée est qu'il est difficile de penser à les générer juste avant un commit, ce qui risque de produire des choses inattendues.
+* Ajout de commentaires spéciaux (docs) à **theme.service** afin qu'il soit possible d'avoir un exemple dans Compodoc.

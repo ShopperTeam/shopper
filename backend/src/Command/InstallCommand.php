@@ -29,11 +29,20 @@ use Symfony\Component\Dotenv\Exception\PathException;
 class InstallCommand extends Command
 {
 
+    protected function configure(): void
+    {
+        $this
+            ->addOption('force', 'f', InputOption::VALUE_NONE, 'Drop the database if it exists, then recreate it.')
+            ->addOption('no-logo', null, InputOption::VALUE_NONE, 'Don\'t show logo.');
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
-        $io->text($this->getLogo());
+        if (!$input->getOption('no-logo')) $io->text($this->getLogo());
+
+        $forceOption = $input->getOption('force');
 
 
         // check if .env.local exist if not, this will help you create one.
@@ -73,6 +82,21 @@ class InstallCommand extends Command
             $dotenv->load('.env.local');
         } catch (PathException $e) {
             $io->error(".env.local read error: $e");
+        }
+
+
+        // drop database if it exists and if --force option
+        if ($forceOption) {
+            // drop database if it exists
+            $io->info('Supression de la base de donnée si elle éxiste déjà ...');
+            $dropDatabaseIfExistsCommand = $this->getApplication()->find('doctrine:database:drop');
+            $dropDatabaseIfExistsInput = new ArrayInput([
+                'command' => 'doctrine:database:drop',
+                '--if-exists' => true,
+                '--force' => true,
+                '--connection' => 'default'
+            ]);
+            $dropDatabaseIfExistsCommand->run($dropDatabaseIfExistsInput, $output);
         }
 
         // Create database

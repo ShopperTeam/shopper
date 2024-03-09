@@ -38,6 +38,8 @@ class ProductFixtures extends Fixture
             
             if($i <= 4) {
                 $product->setFeatured(true);
+            } else {
+                $product->setFeatured(false);
             }
 
             $this->addReference('product_'.$i, $product);

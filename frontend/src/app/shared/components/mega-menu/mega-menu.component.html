@@ -1,0 +1,38 @@
+<nav class="border-yg-200 bg-yg-505 text-gun-959 dark:text-gun-959">
+    <div
+        class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+        <!-- LEFT Logo -->
+        <a href="/" class="flex items-center">
+            <app-logo className="h-24 w-24" />
+        </a>
+        <app-nav-search />
+        <!--  RIGHT -->
+        <div class="flex items-center md:order-2">
+            <!-- mobile menu -->
+            <button
+                data-collapse-toggle="mega-menu-icons"
+                type="button"
+                class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
+                aria-controls="mega-menu-icons"
+                aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg
+                    class="h-5 w-5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 17 14">
+                    <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+        </div>
+        <!-- NAV  -->
+        <app-nav-list />
+        <app-nav-widgets />
+    </div>
+</nav>

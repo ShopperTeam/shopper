@@ -1,10 +1,26 @@
 <?php
+
+function getLogo(): string
+    {
+        // show logo project
+        return "
+        ███████╗██╗  ██╗ ██████╗ ██████╗ ██████╗ ███████╗██████╗ 
+        ██╔════╝██║  ██║██╔═══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗
+        ███████╗███████║██║   ██║██████╔╝██████╔╝█████╗  ██████╔╝
+        ╚════██║██╔══██║██║   ██║██╔═══╝ ██╔═══╝ ██╔══╝  ██╔══██╗
+        ███████║██║  ██║╚██████╔╝██║     ██║     ███████╗██║  ██║
+        ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝     ╚══════╝╚═╝  ╚═╝                                                                                                     
+        ";
+    }
+
+print(getLogo());
+
 echo "Exécution de 'composer install'...\n";
 exec('composer install', $composerOutput);
-echo implode("\n", $composerOutput) . "\n";
+print implode("\n", $composerOutput) . "\n";
 
-exec('php bin/console shopper:config', $configOutput);
-echo implode("\n", $configOutput) . "\n";
+exec('php bin/console shopper:config --no-logo', $configOutput);
+print implode("\n", $configOutput) . "\n";
 
-exec('php bin/console shopper:install', $installOutput);
-echo implode("\n", $installOutput) . "\n";
+exec('php bin/console shopper:install --force --no-logo', $installOutput);
+print implode("\n", $installOutput) . "\n";
